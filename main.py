@@ -72,8 +72,8 @@ def main():
         if(block_starty>display_height):
             block_starty = 0 - block_height
             block_startx = random.randrange(0,display_width)
-            mycar.increase_score(isDodged)
             isDodged = True 
+            mycar.increase_score(isDodged)
             #block_speed +=0.5 increase speed
             block_width+= (dodged * 1.2)
 

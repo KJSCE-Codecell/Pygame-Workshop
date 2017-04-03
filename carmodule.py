@@ -36,8 +36,8 @@ class car():
     def get_score(self):
         return self.score
 
-    def increase_score(self, crashed):
-        if crashed:
+    def increase_score(self, dodged):
+        if not dodged:
             self.crash()
         else:
             self.score += 1
