@@ -6,7 +6,8 @@ class car():
     EPSILON = 10
     left_key, right_key, boundary_left, boundary_right = None, None, None, None
 
-    def __init__(self, car_image, init_x = 0, init_y = 0, left_key = pygame.K_LEFT, right_key = pygame.K_RIGHT, boundary_left = 0, boundary_y = 600):
+    def __init__(self, car_image, init_x = 0, init_y = 0, left_key = pygame.K_LEFT,
+            right_key = pygame.K_RIGHT, boundary_left = 0, boundary_right = 600):
         self.car_image = car_image
         self.x_pos = init_x
         self.y_pos = init_y
