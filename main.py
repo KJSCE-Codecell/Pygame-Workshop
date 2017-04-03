@@ -46,6 +46,7 @@ def main():
     block_speed = 7
     block_width = 100
     block_height = 100
+    isDodged = True
 
     dodged = 0
     
@@ -66,22 +67,23 @@ def main():
        
         block_starty += block_speed 
 
-        if(x>display_width-car_width or x<0):
-            crash()
-        if(thing_starty>display_height):
-            thing_starty = 0 - thing_height
-            thing_startx = random.randrange(0,display_width)
-            dodged+=1
-            #thing_speed +=0.5 increase speed
-            thing_width+= (dodged * 1.2)
+        if(mycar.get_x()>display_width-car_dimensions[0] or mycar.get_x()<0):
+            isDodged = False
+        if(block_starty>display_height):
+            block_starty = 0 - block_height
+            block_startx = random.randrange(0,display_width)
+            mycar.increase_score(isDodged)
+            isDodged = True 
+            #block_speed +=0.5 increase speed
+            block_width+= (dodged * 1.2)
 
-        if y<thing_starty+thing_height:
-            if x>thing_startx and x<thing_startx+thing_width or x+car_width>thing_startx and x+car_width<thing_startx+thing_width:
-                crash() 
+        if mycar.get_y()<block_starty+block_height:
+            if mycar.get_x()>block_startx and mycar.get_x()<block_startx+block_width or mycar.get_x()+car_dimensions[0]>block_startx and mycar.get_x()+car_dimensions[0]<block_startx+block_width:
+                isDodged = False 
         
         pygame.display.update() #Update the screen
                                 #If parameter is mentioned, update only that part
-
+        if not isDodged: mycar.crash()
         block.draw(block_starty)
         clock.tick(60)  #Frames per second
 
