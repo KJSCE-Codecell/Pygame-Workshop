@@ -5,7 +5,11 @@ from block import Block
 
 
 
-
+def crash(score):
+    pygame.quit()
+    print("You crashed!")
+    print("Final Score is : ",str(score))
+    quit()
 
 def main():
     pygame.init()   #Initialize Pygame
@@ -60,7 +64,20 @@ def main():
         block = Block(block_startx, block_starty, block_width,
          block_height, block_speed, black, game_display)
        
-        block_starty += block_speed  
+        block_starty += block_speed 
+
+        if(x>display_width-car_width or x<0):
+            crash()
+        if(thing_starty>display_height):
+            thing_starty = 0 - thing_height
+            thing_startx = random.randrange(0,display_width)
+            dodged+=1
+            #thing_speed +=0.5 increase speed
+            thing_width+= (dodged * 1.2)
+
+        if y<thing_starty+thing_height:
+            if x>thing_startx and x<thing_startx+thing_width or x+car_width>thing_startx and x+car_width<thing_startx+thing_width:
+                crash() 
         
         pygame.display.update() #Update the screen
                                 #If parameter is mentioned, update only that part
