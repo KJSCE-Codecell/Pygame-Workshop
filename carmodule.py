@@ -1,6 +1,29 @@
 import pygame
 
-class car():
+class Car():
+    '''
+    Car class
+    -----------------------------
+    Class Variables
+    -----------------------------
+    xpos, ypos - coordinates of car
+    score - score
+    EPSILON - change in x coordinate
+    car_image - sprite for car
+    left_key, right_key - key binding for moving left and right (Default is left and right arrow keys)
+    boundary_left, boundary_right - boundary for car to left and / or right
+    ------------------------------
+    Class Functions
+    ------------------------------
+    __init__ - default constructor
+    draw_car - function to draw car using blit in pygame
+    move_car - move car to left and right
+    get_x - getter for x_pos
+    get_y - getter for y_pos
+    get_score - getter for score
+    increase_score - increment score if dodged parameter is True, else crash
+    crash - Function to crash car and exit after printing score
+    '''
     x_pos, y_pos, score = 0, 0, 0
     EPSILON = 10
     car_image, left_key, right_key, boundary_left, boundary_right = None, None, None, None, None
