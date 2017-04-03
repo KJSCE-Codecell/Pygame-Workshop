@@ -32,7 +32,7 @@ def main():
 
     car_image = pygame.image.load('racecar.png')    #Load car sprite
     car_dimensions = car_image.get_rect().size    #Get car dimensions in form of a tuple
-    mycar = carmodule.car(car_image, (display_width*0.45), (display_height*0.8), 100, 700)    #Create object for first car with default key_bindings
+    mycar = carmodule.car(car_image, (display_width*0.45), (display_height*0.8), boundary_left = 100, boundary_right = 700)    #Create object for first car with default key_bindings
     '''
         Add two player functionality
     '''
