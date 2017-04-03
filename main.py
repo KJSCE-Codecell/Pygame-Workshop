@@ -1,6 +1,7 @@
 import pygame
 import carmodule
-import block
+import random
+from block import Block
 
 
 
@@ -58,13 +59,15 @@ def main():
         mycar.draw_car(game_display)
 
         #def __init__(self, X,Y, width, height, speed, color,game_display):
-        block = Block(block_startx, block_starty, block_width,
-         block_height, block_speed, black, game_display)
-        block.draw()
+        # block = Block(block_startx, block_starty, block_width,
+        #  block_height, block_speed, black, game_display)
+       
+        # block_starty += block_speed  
         
         pygame.display.update() #Update the screen
                                 #If parameter is mentioned, update only that part
 
+        # block.draw(block_starty)
         clock.tick(60)  #Frames per second
 
     pygame.quit() #Exit pygame
