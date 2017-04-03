@@ -25,6 +25,3 @@ class Block:
 		def draw(self,Y):
 			pygame.draw.rect(self.game_display, self.color, 
 				[self.current_x, self.current_y, self.width, self.height])
-
-
-	

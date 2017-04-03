@@ -5,11 +5,7 @@ from block import Block
 
 
 
-def crash(score):
-    pygame.quit()
-    print("You crashed!")
-    print("Final Score is : ",str(score))
-    quit()
+
 
 def main():
     pygame.init()   #Initialize Pygame
@@ -36,7 +32,7 @@ def main():
 
     car_image = pygame.image.load('racecar.png')    #Load car sprite
     car_dimensions = car_image.get_rect().size    #Get car dimensions in form of a tuple
-    mycar = carmodule.car(car_image, (display_width*0.45), (display_height*0.8), boundary_left = 100, boundary_right = 700 - car_dimensions[0])    #Create object for first car with default key_bindings
+    mycar = carmodule.Car(car_image, (display_width*0.45), (display_height*0.8), boundary_left = 100, boundary_right = 700 - car_dimensions[0])    #Create object for first car with default key_bindings
     '''
         Add two player functionality
     '''
@@ -48,7 +44,7 @@ def main():
     block_height = 100
     isDodged = True
 
-    dodged = 0
+   
     
 
 
@@ -61,7 +57,7 @@ def main():
         game_display.fill(white)
         mycar.draw_car(game_display)
 
-        #def __init__(self, X,Y, width, height, speed, color,game_display):
+        #__init__(self, X,Y, width, height, speed, color,game_display):
         block = Block(block_startx, block_starty, block_width,
          block_height, block_speed, black, game_display)
        
