@@ -13,7 +13,7 @@ def main():
     white = (255, 255, 255)
 
     game_display = pygame.display.set_mode((display_width, display_height))   #Initialize Main screen size
-    pygame.display.set_caption('A bit racey')   #Game's Name (Comes in title bar)
+    pygame.display.set_caption('Codecell Wars')   #Game's Name (Comes in title bar)
     clock = pygame.time.Clock() #Time with respect to game
 
     '''
@@ -21,13 +21,12 @@ def main():
         The crashed variable is a boolean flag to indicate if the loop needs\
                 to be exited.
     '''
-    exit_game = False
+    exit_game = False 
 
-    car_image = pygame.image.load('racecar.png')
-    mycar = carmodule.car(car_image, (display_width*0.45), (display_height*0.8))
-
-    car_image = pygame.image.load('racecar.png')
-    mycar_two = carmodule.car(car_image, (display_width*0.45), (display_height*0.8), pygame.K_a, pygame.K_f)
+    car_image = pygame.image.load('racecar.png')    #Load car sprite
+    car_dimensions = car_image.get_rect().size    #Get car dimensions in form of a tuple
+    mycar = carmodule.car(car_image, (display_width*0.45), (display_height*0.8))    #Create object for first car with default key_bindings
+    mycar_two = carmodule.car(car_image, (display_width*0.45), (display_height*0.8), pygame.K_a, pygame.K_f)    #Create object for second car with ASDF key bindings
 
     while not exit_game:
 
