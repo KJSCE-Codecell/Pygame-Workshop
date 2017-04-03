@@ -52,8 +52,7 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit_game = True
-            mycar.move_car(event)
-
+        mycar.move_car(event)
         game_display.fill(white)
         mycar.draw_car(game_display)
 

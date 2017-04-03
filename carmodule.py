@@ -23,7 +23,7 @@ class car():
         if event.type is pygame.KEYDOWN:
             if event.key == self.left_key:
                 self.x_pos -= self.EPSILON
-                self.x_pos = min(self.x_pos, self.boundary_left)
+                self.x_pos = max(self.x_pos, self.boundary_left)
             elif event.key == self.right_key:
                 self.x_pos += self.EPSILON
-                self.x_pos = max(self.x_pos, self.boundary_right)
+                self.x_pos = min(self.x_pos, self.boundary_right)
