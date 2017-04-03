@@ -1,7 +1,7 @@
 import pygame
 
 class car():
-    x_pos, y_pos= 0
+    x_pos, y_pos= 0, 0
     car_image = ""
     EPSILON = 10
     left_key, right_key, boundary_left, boundary_right = None, None, None, None
