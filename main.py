@@ -1,5 +1,10 @@
 import pygame
 import carmodule
+import block
+
+
+
+
 
 def main():
     pygame.init()   #Initialize Pygame
@@ -30,6 +35,16 @@ def main():
     '''
         Add two player functionality
     '''
+    #random obstacles
+    block_startx = random.randrange(0,display_width)
+    block_starty = -600
+    block_speed = 7
+    block_width = 100
+    block_height = 100
+
+    dodged = 0
+    
+
 
     while not exit_game:
 
@@ -40,6 +55,11 @@ def main():
 
         game_display.fill(white)
         mycar.draw_car(game_display)
+
+        #def __init__(self, X,Y, width, height, speed, color,game_display):
+        block = Block(block_startx, block_starty, block_width,
+         block_height, block_speed, black, game_display)
+        block.draw()
         
         pygame.display.update() #Update the screen
                                 #If parameter is mentioned, update only that part
