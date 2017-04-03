@@ -20,9 +20,10 @@ class car():
         game_display.blit(self.car_image, (self.x_pos, self.y_pos))
 
     def move_car(self, event):
-        if event.key == self.left_key:
-            self.x_pos -= self.EPSILON
-            self.x_pos = min(self.x_pos, self.boundary_left)
-        elif event.key == self.right_key:
-            self.x_pos += self.EPSILON
-            self.x_pos = max(self.x_pos, self.boundary_right)
+        if event.type is pygame.KEYDOWN:
+            if event.key == self.left_key:
+                self.x_pos -= self.EPSILON
+                self.x_pos = min(self.x_pos, self.boundary_left)
+            elif event.key == self.right_key:
+                self.x_pos += self.EPSILON
+                self.x_pos = max(self.x_pos, self.boundary_right)
