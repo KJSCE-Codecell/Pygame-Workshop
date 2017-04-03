@@ -1,10 +1,9 @@
 import pygame
 
 class car():
-    x_pos, y_pos= 0, 0
-    car_image = ""
+    x_pos, y_pos, score = 0, 0, 0
     EPSILON = 10
-    left_key, right_key, boundary_left, boundary_right = None, None, None, None
+    car_image, left_key, right_key, boundary_left, boundary_right = None, None, None, None, None
 
     def __init__(self, car_image, init_x = 0, init_y = 0, left_key = pygame.K_LEFT,
             right_key = pygame.K_RIGHT, boundary_left = 0, boundary_right = 600):
@@ -27,3 +26,18 @@ class car():
             elif event.key == self.right_key:
                 self.x_pos += self.EPSILON
                 self.x_pos = min(self.x_pos, self.boundary_right)
+
+    def get_x(self):
+        return self.x_pos
+
+    def get_y(self):
+        return self.y_pos
+
+    def get_score(self):
+        return self.score
+
+    def crash(self):
+        pygame.quit()
+        print("You crashed!")
+        print("Final score is ", self.score)
+        quit()
