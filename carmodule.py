@@ -36,6 +36,11 @@ class car():
     def get_score(self):
         return self.score
 
+    def increase_score(self, crashed):
+        if crashed:
+            crash()
+        else:
+            self.score += 1
     def crash(self):
         pygame.quit()
         print("You crashed!")
